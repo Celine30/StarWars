@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "starwars": {
@@ -24,8 +24,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -88,8 +93,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules/"
+              ]
+            },
             "scripts": []
           }
         },
@@ -119,6 +129,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "starwars"
+    }
+  },
+  "defaultProject": "starwars",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

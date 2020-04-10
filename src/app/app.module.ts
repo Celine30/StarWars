@@ -11,6 +11,8 @@ import { StarshipsComponent } from './starships/starships.component';
 import { SpeciesComponent } from './species/species.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import {MaterialModule} from './material.module';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
