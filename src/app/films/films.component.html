@@ -1,2 +1,15 @@
-<p>Les films {{films}}  </p>
-<p>Le movie {{movie}}  </p>
+
+
+<p>Les Films les plus populaire </p>
+
+    <app-movie *ngFor = "let movie of movies"
+        [movieTitle]="movie.title"
+        [moviePoster]="movie.poster_path"
+        [movieDate]="movie.date"
+        ></app-movie>
+
+
+
+
+<!--         https://api.themoviedb.org/3/movie/419704/credits?api_key=da1bce919075394c3d45dccb32acf33e -->
+<!-- https://image.tmdb.org/t/p/w500/5BwqwxMEjeFtdknRV792Svo0K1v.jpg -->

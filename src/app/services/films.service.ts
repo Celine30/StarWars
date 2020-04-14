@@ -1,33 +1,35 @@
 
 import { Subject } from 'rxjs';
+import { MdcOverline } from '@angular-mdc/web';
 
-export class FilmsService{
+import { Injectable } from '@angular/core';
+/* import { HttpClient } from '@angular/common/http'; */
 
-    filmSubject = new Subject<any[]>();
+@Injectable()
 
-    private films = ["film1","film2","film3"];
+export class FilmsService {
 
-    movie =this.fetch_movies_popular()
+    private movie:any[]
+
+    filmsSubject = new Subject<any[]>();
+
+   /*  constructor(private httpClient: HttpClient) { } */
 
     fetch_movies_popular(){
+
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=da1bce919075394c3d45dccb32acf33e&language=fr&page=1')
         .then(response => {
             return response.json()
-        })
-        .then(json => {
-            this.attitrer(json.results[0].title)  
+        }) .then(json => {
+            this.movie = json.results
+            console.log(this.movie)
+            this.emitFilmsSubject();
         })
     }
 
-    emitPostSubject (){
-        this.filmSubject.next(this.films.slice());
     
-    }
-
-    attitrer(r){
-        console.log(r)
+    emitFilmsSubject() {
+        this.filmsSubject.next(this.movie.slice());
     }
 
 }
-
-console.log('coucou')
