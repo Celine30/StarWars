@@ -9,12 +9,16 @@ import { Input,Component, OnInit } from '@angular/core';
 export class MovieComponent implements OnInit {
 
   @Input() movieTitle: string;
-  @Input() moviePoster: string;
+  @Input() moviePtPoster: string;
   @Input() movieDate: string;
+  
+
+  title = '3';
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
