@@ -5,6 +5,7 @@
     <app-movie *ngFor = "let movie of movies"
         [movieTitle]="movie.title"
         [moviePtPoster]="movie.backdrop_path"
+        [movieTagline]="movie.tagline"
         [movieDate]="movie.date"
         ></app-movie>
 

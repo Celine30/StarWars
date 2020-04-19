@@ -7,11 +7,16 @@
 @use '@material/button/mdc-button';
 @use '@material/button';
 
+.imgHome{
+  width: 350px;
+}
+
 
 .card {
   width: 350px;
   margin: 28px;
 }
+
 
 .card__primary {
   padding: 1rem;

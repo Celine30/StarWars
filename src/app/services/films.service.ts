@@ -45,8 +45,11 @@ export class FilmsService {
     }
 
     add(details:any){
+        if(details.backdrop_path == null){
+            details.backdrop_path= "nopicture"
+        }
         this.movies.push(details)
-        if(this.movies.length == 20){
+        if(this.movies.length == this.id_popular.length){
             console.log('il y sont tous')
             for (let i=0 ; i<20 ; i++){
                     fetch('https://api.themoviedb.org/3/movie/'+ this.id_popular[i] +'/credits?api_key=da1bce919075394c3d45dccb32acf33e')
@@ -64,13 +67,14 @@ export class FilmsService {
         Object.defineProperty(this.movies[id], 'credits', {
             value: details
         });
-        if(id==19){
+        if(id==this.movies.length-1){
             console.log('fini')
             this.emitFilmsSubject();
         }
     }
 
     emitFilmsSubject() {
+        console.log(this.movies)
         this.filmsSubject.next(this.movies.slice());
     }
 
