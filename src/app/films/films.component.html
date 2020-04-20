@@ -3,10 +3,11 @@
 <p>Les Films les plus populaire </p>
 
     <app-movie *ngFor = "let movie of movies"
-        [movieTitle]="movie.title"
-        [moviePtPoster]="movie.backdrop_path"
+        [movieTitle]="movie.name"
+        [moviePtPoster]="movie.picture"
         [movieTagline]="movie.tagline"
         [movieDate]="movie.date"
+        [movieProductor]="movie.director"
         ></app-movie>
 
 

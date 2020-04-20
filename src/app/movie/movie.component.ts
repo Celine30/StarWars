@@ -12,6 +12,7 @@ export class MovieComponent implements OnInit {
   @Input() moviePtPoster: string;
   @Input() movieDate: string;
   @Input() movieTagline : string;
+  @Input() movieProductor : string;
   
 
   constructor() { }

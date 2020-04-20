@@ -1,7 +1,7 @@
 
 import { Subject } from 'rxjs';
 import { MdcOverline } from '@angular-mdc/web';
-import { Movie} from '../movie'
+import { OneMovie} from '../onemovie'
 
 import { Injectable } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -9,6 +9,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Injectable()
 
 export class FilmsService {
+
+    private DataMovies = []
 
     private movies=[]
 
@@ -68,14 +70,41 @@ export class FilmsService {
             value: details
         });
         if(id==this.movies.length-1){
-            console.log('fini')
+            this.tomovie(this.movies)
             this.emitFilmsSubject();
         }
     }
 
+    tomovie(datas){
+    
+        for (const data of datas) {
+            let productor =""
+            for( const produc of data.credits.crew){
+                if ((produc.department == "Directing")&&(produc.job == "Director")){
+                    productor = produc.name +", "+ productor
+                }
+            }
+            this.DataMovies.push(
+                new OneMovie(
+                    data.id,
+                    data.backdrop_path,
+                    data.title,
+                    data.tagline,
+                    data.release_date,
+                    data.original_language,
+                    productor,
+                    data.runtime,
+                    data.credits.cast,
+                    data.credits.crew
+                )
+            )
+        }
+        console.log(this.DataMovies)
+    }
+
     emitFilmsSubject() {
         console.log(this.movies)
-        this.filmsSubject.next(this.movies.slice());
+        this.filmsSubject.next(this.DataMovies.slice());
     }
 
 }
