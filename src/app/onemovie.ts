@@ -1,6 +1,6 @@
 export class OneMovie {
 
-        constructor(id :number , picture : string ,name: string, tagline: string, create : string , nationality :string , director : string, during: number, cast:any[], crew:any[] ) {
+        constructor(id :number , picture : string ,name: string, tagline: string, create : string , nationality :string , director : string, during: number, credit:any[] ) {
             this.id = id;
             this.picture = picture;
             this.name = name;
@@ -9,8 +9,7 @@ export class OneMovie {
             this.nationality = nationality;
             this.director = director;
             this.during = during;
-            this.cast = cast
-            this.crew = crew
+            this.credit = credit
         }
 
         public id: number;
@@ -21,6 +20,5 @@ export class OneMovie {
         public nationality :string;
         public director : string;
         public during : number
-        public cast:any[]
-        public crew:any[]
+        public credit :any[]
     }

@@ -10,9 +10,13 @@ export class MovieComponent implements OnInit {
 
   @Input() movieTitle: string;
   @Input() moviePtPoster: string;
-  @Input() movieDate: string;
   @Input() movieTagline : string;
+  @Input() movieDate: string;
+  @Input() movieNation : string;
   @Input() movieProductor : string;
+  @Input() movieDuring : string;
+  @Input() movieCredit : string;
+
   
 
   constructor() { }
