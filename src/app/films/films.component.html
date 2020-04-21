@@ -2,16 +2,47 @@
 
 <p>Les Films les plus populaire </p>
 
-    <app-movie *ngFor = "let movie of movies"
-        [movieTitle]="movie.name"
-        [moviePtPoster]="movie.picture"
-        [movieTagline]="movie.tagline"
-        [movieDate]="movie.date"
-        [movieProductor]="movie.director"
-        ></app-movie>
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+
+    <div *ngFor = "let movie of movies" class="mdc-layout-grid__cell--span-4">
+      <app-movie 
+          [movieTitle]="movie.name"
+          [moviePtPoster]="movie.picture"
+          [movieTagline]="movie.tagline"
+          [movieDate]="movie.create"
+          [movieNation]="movie.nationality"
+          [movieProductor]="movie.director"
+          [movieDuring]="movie.during"
+          [movieCredit]="movie.credit"
+          ></app-movie>
+      </div>
+  </div>
+</div>
 
 
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell">oui</div>
+          <div class="mdc-layout-grid__cell">oui</div>
+          <div class="mdc-layout-grid__cell">oui</div>
+          <div class="mdc-layout-grid__cell">oui</div>
+          <div class="mdc-layout-grid__cell">oui</div>
+      </div>
+</div>
 
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell"><span>Second level</span></div>
+        <div class="mdc-layout-grid__cell"><span>Second level</span></div>
+      </div>
+    </div>
+    <div class="mdc-layout-grid__cell">First level</div>
+    <div class="mdc-layout-grid__cell">First level</div>
+  </div>
+</div>
 
 <!--         https://api.themoviedb.org/3/movie/419704/credits?api_key=da1bce919075394c3d45dccb32acf33e -->
 <!-- https://image.tmdb.org/t/p/w500/5BwqwxMEjeFtdknRV792Svo0K1v.jpg -->
